@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resumes - ResumeCraft</title>
+    <link rel="stylesheet" href="css/resumes.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <h2 class="logo">ResumeCraft</h2>
+        <div class="nav-links">
+            <a href="index.html" class="btn-link">Home</a>
+            <a href="builder.html" class="btn-link">Create New</a>
+            <button id="logoutBtn" class="btn-link logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <div class="resumes-container">
+        <div class="header-section">
+            <h1>My Resumes</h1>
+            <p>Manage and view all your created resumes</p>
+        </div>
+
+        <!-- RESUMES GRID -->
+        <div class="resumes-grid" id="resumesGrid">
+            <!-- Resumes will be loaded here by JavaScript -->
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <div class="empty-icon">📄</div>
+            <h2>No Resumes Created Yet</h2>
+            <p>Start creating your first resume to see it here</p>
+            <button class="btn-create" id="createNewBtn">+ Create Resume</button>
+        </div>
+
+        <!-- CREATE BUTTON (Floating) -->
+        <button class="btn-float" id="floatingCreateBtn">+</button>
+    </div>
+
+    <!-- Modal for Resume Preview/Actions -->
+    <div class="modal" id="resumeModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Resume Preview</h2>
+            </div>
+            <div class="modal-body">
+                <iframe id="modalIframe" src=""></iframe>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" id="modalEditBtn">Edit Resume</button>
+                <button class="btn-secondary" id="modalDeleteBtn">Delete Resume</button>
+                <button class="btn-primary" id="modalDownloadBtn">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <div class="dialog-overlay" id="confirmDialog">
+        <div class="dialog-box">
+            <div class="dialog-icon confirm-icon">?</div>
+            <h2 id="confirmTitle">Confirm Action</h2>
+            <p id="confirmMessage">Are you sure?</p>
+            <div class="dialog-buttons">
+                <button class="dialog-btn-primary" id="confirmYesBtn">Yes</button>
+                <button class="dialog-btn-secondary" id="confirmNoBtn">No</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script src="js/resumes.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeCraft – Resume Builder</title>
+
+    <!-- GLOBAL + BUILDER STYLES -->
+    <!-- <link rel="stylesheet" href="css/global.css"> -->
+    <link rel="stylesheet" href="css/builder.css">
+    
+    <!-- External Libraries for Download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <h2 class="logo">ResumeCraft</h2>
+        <div class="nav-links">
+            <a href="index.html" class="btn-primary">Home</a>
+            <a href="resumes.html" class="btn-primary">My Resumes</a>
+        </div>
+    </header>
+
+    <!-- MAIN BUILDER LAYOUT -->
+    <div class="builder-container">
+
+        <!-- LEFT SIDEBAR (STEPS) -->
+        <aside class="sidebar">
+
+            <h3 class="sidebar-title">Steps</h3>
+
+            <ul class="steps">
+                <li class="step active" data-step="1">1. Personal Details</li>
+                <li class="step" data-step="2">2. Education</li>
+                <li class="step" data-step="3">3. Experience</li>
+                <li class="step" data-step="4">4. Skills</li>
+                <li class="step" data-step="5">5. Summary</li>
+                <li class="step" data-step="6">6. Projects</li>
+                <li class="step" data-step="7">7. Template</li>
+            </ul>
+
+        </aside>
+
+
+        <!-- FORM AREA -->
+        <section class="form-area">
+
+            <!-- Step 1 -->
+            <div class="form-step active" id="step-1">
+                <h2>Personal Details</h2>
+
+                <label>Full Name</label>
+                <input type="text" id="name">
+
+                <label>Role / Title</label>
+                <input type="text" id="role">
+
+                <label>Email</label>
+                <input type="email" id="email">
+
+                <label>Phone</label>
+                <input type="text" id="phone">
+
+                <label>Address</label>
+                <input type="text" id="address">
+
+                <label>Profile Photo</label>
+                <input type="file" id="profilePhotoInput" accept="image/*">
+
+                <div id="photoPreview" style="margin-top:8px;"></div>
+
+                <div class="btn-row">
+                    <button class="btn-primary next-btn">Next</button>
+                </div>
+            </div>
+
+
+            <!-- Step 2 -->
+            <div class="form-step" id="step-2">
+                <h2>Education</h2>
+
+                <label>Degree</label>
+                <input type="text" id="degree">
+
+                <label>School / University</label>
+                <input type="text" id="school">
+
+                <label>Years</label>
+                <input type="text" id="edu-years">
+
+                <div class="btn-row">
+                    <button class="back-btn">Back</button>
+                    <button class="btn-primary next-btn">Next</button>
+                </div>
+            </div>
+
+
+            <!-- Step 3 -->
+            <div class="form-step" id="step-3">
+                <h2>Experience</h2>
+
+                <label>Job Title</label>
+                <input type="text" id="job-title">
+
+                <label>Company</label>
+                <input type="text" id="company">
+
+                <label>Years</label>
+                <input type="text" id="exp-years">
+
+                <label>Description</label>
+                <textarea id="job-desc"></textarea>
+
+                <div class="btn-row">
+                    <button class="back-btn">Back</button>
+                    <button class="btn-primary next-btn">Next</button>
+                </div>
+            </div>
+
+
+            <!-- Step 4 -->
+            <div class="form-step" id="step-4">
+                <h2>Skills</h2>
+
+                <label>Skills (comma separated)</label>
+                <input type="text" id="skills">
+
+                <div class="btn-row">
+                    <button class="back-btn">Back</button>
+                    <button class="btn-primary next-btn">Next</button>
+                </div>
+            </div>
+
+
+            <!-- Step 5 -->
+            <div class="form-step" id="step-5">
+                <h2>Professional Summary</h2>
+
+                <label>Summary</label>
+                <textarea id="summary"></textarea>
+
+                <div class="btn-row">
+                    <button class="back-btn">Back</button>
+                    <button class="btn-primary next-btn">Next</button>
+                </div>
+            </div>
+
+
+            <!-- Step 6 -->
+            <div class="form-step" id="step-6">
+                <h2>Projects</h2>
+
+                <div id="projects-step"></div>
+
+                <div class="btn-row">
+                    <button class="back-btn">Back</button>
+                    <button class="btn-primary next-btn">Next</button>
+                </div>
+            </div>
+
+
+            <!-- Step 7 -->
+            <div class="form-step" id="step-7">
+                <h2>Select Template</h2>
+
+                <div class="template-select">
+                    <div class="template-option" data-template="1">Template 1</div>
+                    <div class="template-option" data-template="2">Template 2</div>
+                    <div class="template-option" data-template="3">Template 3</div>
+                    <div class="template-option" data-template="4">Template 4</div>
+                    <div class="template-option" data-template="5">Template 5</div>
+                </div>
+
+                <div class="btn-row">
+                    <button class="back-btn">Back</button>
+                    <div class="download-dropdown">
+                        <button class="btn-primary" id="downloadBtn">Download Resume</button>
+                        <div class="dropdown-menu" id="downloadMenu">
+                            <button class="dropdown-option" data-format="pdf">📄 Download as PDF</button>
+                            <button class="dropdown-option" data-format="image">🖼️ Download as Image</button>
+                            <button class="dropdown-option" data-format="docx">📝 Download as Word</button>
+                        </div>
+                    </div>
+                    <button id="save" class="btn-primary">Save</button>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- LIVE PREVIEW -->
+        <aside class="preview-area">
+            <iframe id="resume-preview" src="templates/template1.html"></iframe>
+        </aside>
+
+    </div>
+
+
+    <!-- Save Dialog -->
+    <div class="save-dialog" id="saveDialog">
+        <div class="save-dialog-content">
+            <div class="save-dialog-icon">✓</div>
+            <h2>Resume Saved</h2>
+            <p>Your resume has been saved successfully!</p>
+            <button class="btn-dialog-close" id="closeDialogBtn">Close</button>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="js/templates.js"></script>
+    <script src="js/builder.js"></script>
+</body>
+</html>
