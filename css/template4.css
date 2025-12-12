@@ -1,0 +1,22 @@
+/* Minimal resume template styling */
+html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:#0b0b0b;background:#fff}
+.resume{max-width:760px;margin:28px auto;padding:28px;border-left:4px solid #111}
+.resume__header{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
+.resume__header h1{margin:0;font-size:28px;font-weight:700}
+.contact{font-size:13px;color:#555;display:flex;gap:12px;flex-wrap:wrap}
+.section{margin-top:16px}
+.section h2{margin:0 0 10px 0;font-size:13px;color:#333;text-transform:uppercase;letter-spacing:1px}
+.entry{border-top:1px solid #eee;padding-top:12px;margin-top:12px}
+.entry-left h3{margin:0;font-size:16px}
+.muted{color:#666;font-size:13px}
+.entry-right{float:right;color:#666;font-size:13px}
+.desc{margin-top:8px;color:#111;line-height:1.45}
+.skills-list{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:6px 0 0 0;list-style:none}
+.skills-list li{background:#f2f4f6;padding:6px 10px;border-radius:6px;font-size:13px;color:#111}
+
+@media (max-width:700px){
+  .resume{padding:18px;margin:12px}
+  .entry-right{float:none;text-align:right;margin-top:6px}
+}
+
+@media print{.resume{border-left:none;padding:0;margin:0}}

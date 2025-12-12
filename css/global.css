@@ -1,0 +1,182 @@
+/* ------------------------------
+   GLOBAL RESET
+------------------------------ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* ------------------------------
+   GOOGLE FONT
+------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+/* ------------------------------
+   COLOR VARIABLES
+------------------------------ */
+:root {
+
+    /* Primary Colors */
+    --primary: #4F46E5;        /* Indigo */
+    --primary-dark: #4338CA;   /* Darker Indigo */
+    --accent-blue: #1E3A8A;    /* Navy blue */
+
+    /* Neutrals */
+    --bg-light: #F8FAFC;       /* Soft background */
+    --white: #FFFFFF;
+    --border-light: #E5E7EB;
+    --text-dark: #1E293B;
+    --text-medium: #475569;
+    --text-light: #64748B;
+
+    /* Shadows */
+    --shadow-soft: 0 6px 18px rgba(0, 0, 0, 0.06);
+    --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+
+/* ------------------------------
+   TYPOGRAPHY
+------------------------------ */
+
+h1, h2, h3, h4 {
+    color: var(--accent-blue);
+    font-weight: 600;
+}
+
+p {
+    color: var(--text-medium);
+    line-height: 1.6;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+
+/* ------------------------------
+   BUTTONS
+------------------------------ */
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+    padding: 10px 22px;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.2s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+/* Bigger CTA button */
+.big-btn {
+    padding: 14px 30px;
+    font-size: 18px;
+}
+
+
+/* ------------------------------
+   NAVBAR
+------------------------------ */
+
+.navbar {
+    width: 100%;
+    padding: 20px 50px;
+    background: var(--white);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+
+/* ------------------------------
+   ANIMATION HELPERS
+------------------------------ */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Parallax elements */
+.parallax {
+    transition: transform 0.2s linear;
+}
+
+
+/* ------------------------------
+   LAYOUT UTILITIES
+------------------------------ */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.center {
+    text-align: center;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+
+.footer {
+    background: var(--accent-blue);
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    margin-top: 60px;
+}
+::-webkit-scrollbar {
+    display: none;
+}

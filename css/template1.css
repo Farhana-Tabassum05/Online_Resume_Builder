@@ -1,0 +1,146 @@
+/* Professional Resume Template Styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root{
+	--bg: #f4f6f8;
+	--card: #ffffff;
+	--muted: #6b7280;
+	--accent: #0b63ff;
+	--text: #0f1724;
+}
+
+html,body{
+	height:100%;
+	background:var(--bg);
+	font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	color:var(--text);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.resume-container{
+	max-width: 900px;
+	margin: 36px auto;
+	background: var(--card);
+	padding: 28px;
+	box-shadow: 0 10px 30px rgba(16,24,40,0.08);
+	border-radius: 8px;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: 1fr 320px;
+	gap: 28px 32px;
+}
+
+/* Header spans full width */
+.resume-container > .header{
+	grid-column: 1 / -1;
+	display:flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #e6e9ee;
+	padding-bottom: 18px;
+}
+
+.header #namePreview{
+	margin:0;
+	font-size: 30px;
+	font-weight: 700;
+	letter-spacing: -0.3px;
+}
+
+.header p{
+	margin:0;
+	color:var(--muted);
+	font-size: 14px;
+}
+
+.header .contact{
+	text-align: right;
+}
+
+/* Main left column : summary, experience, education */
+.resume-container > section.section:nth-child(2),
+.resume-container > section.section:nth-child(3),
+.resume-container > section.section:nth-child(4){
+	grid-column: 1 / 2;
+}
+
+/* Sidebar right column : skills (and other small sections) */
+.resume-container > section.section:nth-child(5){
+	grid-column: 2 / 3;
+}
+
+.section{
+	padding-top: 12px;
+}
+
+.section h2{
+	margin: 0 0 12px 0;
+	font-size: 16px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	color: var(--muted);
+	border-left: 4px solid var(--accent);
+	padding-left: 12px;
+}
+
+.section h3{
+	margin: 6px 0 4px 0;
+	font-size: 18px;
+	color: var(--text);
+}
+
+.section .sub{
+	margin:0;
+	color:var(--muted);
+	font-size: 14px;
+}
+
+.desc{
+	margin-top:10px;
+	color: #16202a;
+	line-height: 1.5;
+}
+
+/* Skills list: render as tags in the sidebar */
+#skillsPreview{
+	list-style:none;
+	padding:0;
+	margin: 6px 0 0 0;
+	display:flex;
+	flex-wrap:wrap;
+	gap:8px;
+}
+
+#skillsPreview li{
+	background: linear-gradient(135deg,#eef2ff,#e6f0ff);
+	color: #08206a;
+	padding:6px 10px;
+	border-radius: 6px;
+	font-size: 13px;
+	box-shadow: 0 2px 6px rgba(11,99,255,0.06);
+}
+
+/* Dates / meta aligned to the right of headings */
+.sub.date{
+	float: right;
+	color: var(--muted);
+	font-size: 13px;
+}
+
+/* Print friendly */
+@media print{
+	body{ background: white; }
+	.resume-container{ box-shadow:none; border-radius:0; max-width:100%; }
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 880px){
+	.resume-container{
+		grid-template-columns: 1fr;
+		padding: 20px;
+	}
+	.resume-container > .header{ flex-direction: column; align-items: flex-start; gap:8px; }
+	.resume-container > section.section:nth-child(5){ grid-column: 1 / -1; }
+}
+
