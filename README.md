@@ -1,6 +1,6 @@
-# Online Resume Builder 
+#  Resume Craft 
 
-A web-based application that allows users to create professional resumes easily by filling in structured forms and selecting templates.
+A full-stack web application that allows users to register/login, create resumes, store them securely in a database, and download professional resumes.
 
 ##  Features
 - User-friendly resume builder interface
@@ -11,7 +11,8 @@ A web-based application that allows users to create professional resumes easily 
 
 ##  Tech Stack
 - Frontend: HTML, CSS, JavaScript
-- Styling: CSS Flexbox & Grid
+- Middleware: Node.js, JWT Authentication, Custom middleware(Validation, Authentication), Mongoose
+- Database: MongoDB
 - Version Control: Git & GitHub
   
 Screenshots
@@ -24,20 +25,12 @@ Screenshots
 <img width="1963" height="584" alt="image" src="https://github.com/user-attachments/assets/cfd892cc-2e0b-4128-aeb4-731700264799" />
 
 
-##  Project Structure
-Online_Resume_Builder/
-├── index.html
-├── builder.html
-├── css/
-├── js/
-└── assets/
-
 ##  Purpose
-This project was built to practice frontend development concepts and improve UI/UX design skills.
+This project was built to strengthen my Fullstack development skills. It simulates a real-world resume generation tool where users can input personal and professional details and instantly preview a formatted resume.
 
-##  Future Enhancements
-- User authentication
-- Save resumes to database
+The application is fully client-side and designed with simplicity and responsiveness in mind.
+
+##  Future Scope
 - More templates
-- Export to DOCX
-
+- Fully customizable templates
+- Depolyment
