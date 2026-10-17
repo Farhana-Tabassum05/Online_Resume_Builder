@@ -17,10 +17,6 @@ app.use(cors());
 app.use(express.json({ limit: '10mb' })); // Increased limit for profile photos
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
-// Environment variables
-const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://farhana:12345@cluster-1.6lvpzpt.mongodb.net/resumecraft?retryWrites=true&w=majority';
-const JWT_SECRET = process.env.JWT_SECRET || 'Resumes123!';
-const PORT = process.env.PORT || 3000;
 
 /* ============================================================
    MONGODB CONNECTION
