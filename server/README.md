@@ -3,9 +3,7 @@
 This is a minimal Node/Express backend for the ResumeCraft frontend. It provides simple user signup/login and CRUD for user resumes using MongoDB.
 
 Quick start:
-
-1. Copy `.env.sample` to `.env` and set `MONGO_URI` and `JWT_SECRET`.
-2. Install dependencies:
+1. Install dependencies
 
 ```powershell
 cd "d:\college\Front_End\Online Resume Builder\front end codes\server"
