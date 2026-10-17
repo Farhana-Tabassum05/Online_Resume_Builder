@@ -1,0 +1,402 @@
+/* --- 1. Basic Reset and Body Styling --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f4f3ee; /* CREAM BACKGROUND */
+    font-family: 'Montserrat', sans-serif;
+    /* FULL SCREEN SETUP */
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; 
+}
+
+/* --- 2. Typography & Button Styling --- */
+
+h1 {
+    font-weight: bold;
+    margin: 0;
+    color: #463f3a; /* DARK CHARCOAL TEXT */
+}
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+    color: #463f3a;
+}
+
+span {
+    font-size: 12px;
+    color: #8a817c; /* TAUPE TEXT */
+}
+
+a {
+    color: #e0afa0; /* PEACH ACCENT FOR LINKS */
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #463f3a;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid #ce7c42; /* DARK BORDER */
+    background-color: #ff6700; /* DARK BACKGROUND */
+    color: #f4f3ee; /* CREAM TEXT */
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in, background-color 0.3s;
+    cursor: pointer;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button.ghost {
+    background-color: transparent;
+    border-color: #f4f3ee; /* CREAM BORDER (on dark overlay) */
+    color: #f4f3ee; /* CREAM TEXT */
+}
+
+/* --- 3. Form Styling --- */
+
+form {
+    background-color: #ffffff; /* CREAM FORM BACKGROUND */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+    
+    /* FULL SCREEN RESTRICTION */
+    width: 100%;
+    max-width: 450px; 
+    margin: 0 auto;
+}
+
+input {
+    background-color: #ffffff; /* WHITE INPUTS FOR CONTRAST */
+    border: 1px solid #d5964a; /* LIGHT GREY BORDER */
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+    outline: none;
+}
+
+input::placeholder {
+    color: #bcb8b1;
+}
+
+/* Social Icons Styling */
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #bcb8b1; /* LIGHT GREY BORDER */
+    color: #463f3a; /* DARK ICON COLOR */
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+    transition: all 0.3s;
+}
+
+.social-container a:hover {
+    border-color: #e0afa0;
+    color: #e0afa0;
+}
+
+/* --- 4. Main Container (Full Screen Setup) --- */
+
+.container {
+    background-color: #ffffff; /* CREAM CONTAINER */
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+}
+
+/* --- 5. Form Container Positioning --- */
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* --- 6. The Overlay (Sliding Panel) --- */
+
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.overlay {
+    background: #0d0d0d;
+    /* GRADIENT: TAUPE to DARK CHARCOAL */
+    /* background: linear-gradient(to right, #8a817c, #463f3a); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #f4f3ee; /* CREAM TEXT ON OVERLAY */
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Update text colors inside overlay specifically to ensure they are light */
+.overlay-panel h1, 
+.overlay-panel p {
+    color: #ffffff;
+}
+
+.overlay-left {
+    transform: translateX(-20%);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+/* --- 7. Animation Classes (Triggered by JS) --- */
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+    0%, 49% {
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+/* ===============================================
+   DIALOG BOX STYLING
+=============================================== */
+
+.dialog-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.dialog-overlay.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.dialog-box {
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.dialog-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.dialog-icon.success {
+    background: #d4edda;
+    color: #155724;
+}
+
+.dialog-icon.error {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.dialog-icon.warning {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.dialog-icon.info {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.dialog-box h2 {
+    font-size: 24px;
+    color: #463f3a;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.dialog-box p {
+    font-size: 16px;
+    color: #8a817c;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.dialog-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.dialog-btn-primary,
+.dialog-btn-secondary {
+    padding: 12px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.dialog-btn-primary {
+    background: #e0afa0;
+    color: white;
+}
+
+.dialog-btn-primary:hover {
+    background: #d4968a;
+    transform: translateY(-2px);
+}
+
+.dialog-btn-secondary {
+    background: #f4f3ee;
+    color: #463f3a;
+    border: 1px solid #e0afa0;
+}
+
+.dialog-btn-secondary:hover {
+    background: #e8e7e1;
+}
